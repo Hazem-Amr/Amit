@@ -8,7 +8,10 @@ This repository is designed for Python projects related to Machine Learning.
 
 ## Getting Started
 To get started with this project, clone the repository and navigate to the `python-for-ml` folder.
-## Additional Python Scripts
+## Additional Python Scripts (Bonus)
 
-- `example.ipynb`: Prints a simple welcome message.
-- `example.ipynb`: Adds two numbers and prints the result.
+- `example.ipynb`: A simple Jupyter Notebook located inside the `python-for-ml` folder.  
+  - The first cell prints a welcome message:  
+    *"This is a simple Jupyter Notebook inside python-for-ml."*  
+  - The second cell performs a basic arithmetic operation (adding two numbers) and prints the result.
+
