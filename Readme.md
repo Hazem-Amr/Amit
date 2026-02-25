@@ -1,41 +1,41 @@
-# 🧹 Data Preprocessing Pipeline (Python + Streamlit)
+# 🧹 Data Preprocessing Pipeline (Python)
 
-A reusable and interactive data preprocessing framework built with **Python**, **Pandas**, and **Streamlit**.
+A reusable and modular **data preprocessing framework** built with **Python**, **Pandas**, and **Streamlit**.
 
-This project is designed to automate common preprocessing tasks for datasets that are updated regularly (e.g. monthly data).
+This project is designed to automate common data cleaning tasks for datasets that are updated regularly (e.g. monthly data), while keeping preprocessing logic reusable and independent from the user interface.
 
 ---
 
 ## 🚀 Features
 
-- ✅ Data type inspection & conversion
-- ✅ Missing value analysis and handling
-- ✅ Duplicate detection, visualization, and removal
-- ✅ Outlier handling using IQR method
-- ✅ Value replacement in any column
-- ✅ Interactive Streamlit UI
-- ✅ Download cleaned dataset
+- Inspect and filter column data types
+- Convert column data types dynamically
+- Analyze and handle missing values
+- Detect, display, edit, and remove duplicate rows
+- Handle outliers using the IQR method
+- Centralized preprocessing pipeline
+- Interactive Streamlit interface
+- Download cleaned datasets
 
 ---
 
 ## 📂 Project Structure
+
+```text
 AMIT/
-│
 ├── data_preprocessor/
 │   ├── __init__.py
-│   ├── datatypes.py
-│   ├── missing.py
-│   ├── duplicates.py
-│   ├── outliers.py
-│   ├── pipeline.py
+│   ├── datatypes.py        # DataTypeHandler
+│   ├── missing.py          # MissingValuesHandler
+│   ├── duplicates.py       # DuplicateHandler
+│   ├── outliers.py         # OutlierHandler
+│   └── pipeline.py         # PreprocessingPipeline
 │
-├── data/
-├── main.py        # Streamlit app
+├── data/                   # Raw datasets
+├── main.py                 # Streamlit application
 ├── README.md
 ├── .gitignore
-└── .env/
-
-
+└── .env/                   # Virtual environment
 ---
 
 ## 🧠 Core Classes
