@@ -70,5 +70,8 @@ AMIT/
 Activate environment:
 ```bash
 .\.env\Scripts\activate
+```
 
+Run the Streamlit app
+```bash
 streamlit run main.py
