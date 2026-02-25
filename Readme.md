@@ -36,6 +36,7 @@ AMIT/
 ├── README.md
 ├── .gitignore
 └── .env/                   # Virtual environment
+```
 ---
 
 ## 🧠 Core Classes
