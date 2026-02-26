@@ -5,6 +5,7 @@ from data_preprocessor.datatypes import DataTypeHandler
 from data_preprocessor.missing import MissingValuesHandler
 from data_preprocessor.duplicates import DuplicateHandler
 from data_preprocessor.outliers import OutlierHandler
+from data_preprocessor.multivariate import MultivariateHandler
 
 # -------------------------------------------------
 # Streamlit Page Setup
@@ -52,8 +53,8 @@ step = st.selectbox(
         "Handle Missing Values",
         "Handle Duplicates",
         "Handle Outliers",
-        "Replace Values"
-    ]
+        "Multivariate Analysis",
+    ],
 )
 
 # -------------------------------------------------
@@ -72,10 +73,7 @@ if step == "Convert Data Type":
     handler = DataTypeHandler(df)
 
     column = st.selectbox("Select column", df.columns)
-    dtype = st.selectbox(
-        "Select new dtype",
-        ["int", "float", "category", "datetime"]
-    )
+    dtype = st.selectbox("Select new dtype", ["int", "float", "category", "datetime"])
 
     if st.button("Convert Data Type"):
         handler.convert_dtype(column, dtype)
@@ -94,10 +92,7 @@ if step == "Handle Missing Values":
     st.dataframe(handler.check_nulls())
 
     column = st.selectbox("Select column", df.columns)
-    strategy = st.selectbox(
-        "Strategy",
-        ["drop", "mean", "median", "mode"]
-    )
+    strategy = st.selectbox("Strategy", ["drop", "mean", "median", "mode"])
 
     if st.button("Apply Missing Value Strategy"):
         handler.handle_nulls(column, strategy)
@@ -168,7 +163,7 @@ if step == "Handle Outliers":
             st.dataframe(handler.df[[column]].describe())
 
 # -------------------------------------------------
-# "Replace Values"
+# 6️⃣ Replace Values
 # -------------------------------------------------
 if step == "Replace Values":
     st.subheader("Replace Values in Column")
@@ -188,6 +183,40 @@ if step == "Replace Values":
         st.success("Values replaced successfully")
         st.dataframe(df.head())
 
+# -------------------------------------------------
+# 7️⃣ Univariate Analysis
+# -------------------------------------------------
+
+# -------------------------------------------------
+# 8️⃣ Bivariate Analysis
+# -------------------------------------------------
+
+# -------------------------------------------------
+# 9️⃣ Multivariate Analysis
+# -------------------------------------------------
+
+if step == "Multivariate Analysis":
+    st.subheader("📊 Multivariate Analysis")
+
+    handler = MultivariateHandler(df)
+
+    plot_choice = st.radio(
+        "Choose a visualization:",
+        [
+            "Correlation Heatmap (All Variables)",
+            "Correlation Between Selected Variables",
+            "Correlation Between Statistics Variables",
+        ],
+    )
+
+    if plot_choice == "Correlation Heatmap (All Variables)":
+        handler.plot_correlation_heatmap()
+
+    elif plot_choice == "Correlation Between Selected Variables":
+        handler.plot_specific_correlation()
+
+    elif plot_choice == "Correlation Between Statistics Variables":
+        handler.plot_data_stat_correlation()
 
 # -------------------------------------------------
 # Download Cleaned Dataset
@@ -198,8 +227,5 @@ st.subheader("Download Cleaned Dataset")
 csv = st.session_state.df.to_csv(index=False).encode("utf-8")
 
 st.download_button(
-    label="Download CSV",
-    data=csv,
-    file_name="cleaned_dataset.csv",
-    mime="text/csv"
+    label="Download CSV", data=csv, file_name="cleaned_dataset.csv", mime="text/csv"
 )
