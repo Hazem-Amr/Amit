@@ -1,4 +1,4 @@
-# 🧹 Data Preprocessing Pipeline (Python)
+# Data Preprocessing Pipeline (Python)
 
 A reusable and modular **data preprocessing framework** built with **Python**, **Pandas**, and **Streamlit**.
 
@@ -6,7 +6,7 @@ This project is designed to automate common data cleaning tasks for datasets tha
 
 ---
 
-## 🚀 Features
+## Features
 
 - Inspect and filter column data types
 - Convert column data types dynamically
@@ -19,7 +19,7 @@ This project is designed to automate common data cleaning tasks for datasets tha
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 AMIT/
@@ -39,7 +39,7 @@ AMIT/
 ```
 ---
 
-## 🧠 Core Classes
+## Core Classes
 
 ### `DataTypeHandler`
 - Check data types
@@ -65,7 +65,7 @@ AMIT/
 
 ---
 
-## ▶️ Run the App
+## Run the App
 
 Activate environment:
 ```bash
