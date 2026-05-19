@@ -14,7 +14,7 @@ from data_visualization.bivariate import BivariateHandler
 # -------------------------------------------------
 
 st.set_page_config(page_title="Data Preprocessing App", layout="wide")
-st.title("🧹 Data Preprocessing Pipeline")
+st.title("Data Preprocessing Pipeline")
 
 # -------------------------------------------------
 # Upload Data
